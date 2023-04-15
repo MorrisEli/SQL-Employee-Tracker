@@ -1,4 +1,5 @@
-DATABASE
+--DATABASE
 
-TABLE
+--TABLE
 
+-- department, job, employee
