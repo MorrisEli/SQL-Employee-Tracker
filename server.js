@@ -4,3 +4,20 @@ const mysql = require(mysql2);
 const inquirer = require('inquirer');
 //cTable tp print rows
 const cTable = require('console.table');
+
+const connection = mysql.createConnection({
+    //host:
+    //port:
+    //user:
+    //password:
+    //database:
+});
+
+//make menu
+
+//create list
+
+//make choices
+
+
+
