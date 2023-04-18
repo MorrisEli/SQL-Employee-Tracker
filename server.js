@@ -1,24 +1,24 @@
+require('dotenv').config()
+
+const express = require('express');
 //mysql2 to connect to database
-const mysql = require(mysql2);
+const mysql = require('mysql2');
 //inquirer to interact
 const inquirer = require('inquirer');
 //cTable tp print rows
 const cTable = require('console.table');
-const { response } = require('express');
 
-const connection = mysql.createConnection({
-    host: 'localhost',
+
+const db = mysql.createConnection(
+{
+    host: '127.0.0.1',
     port: 3306,
     user: 'root',
     password: process.env.PASSWORD,
-    database: 'db',
-});
-
-connection.connect(err => {
-    if(err) throw err;
-    console.log("Welcome to Employee Tracker");
-    startMenu();
-});
+    database: 'company_db'
+},
+console.log('Connected to the company_db database')
+);
 
 const startMenu = () => {
     inquirer.createPromptModule({
@@ -86,22 +86,22 @@ const addEmployee = () => {
         {
         name: 'nameFirst',
         type: 'input',
-        message: "What is the employees first name?",
+        message: "What is the employees first name?"
         },
         {
             name: 'nameLast',
             type: 'input',
-            message: "What is the employees last name?",
+            message: "What is the employees last name?"
         },
         {
             name: 'jobId',
             type: 'input',
-            message: "What is the emplyees job id?",
+            message: "What is the emplyees job id?"
         },
         {
          name: 'managerId',
          type: 'input',
-         message: "What is the manager ID?",
+         message: "What is the manager ID?"
         },
     ])
     .then(answer => {
